@@ -115,10 +115,10 @@ export default {
     // giscus配置
     giscusTalk(
       {
-        repo: "yolk23321/my-blog", //仓库
-        repoId: "R_kgDOP5ClHQ", //仓库ID
+        repo: "yolk23321/yolk23321.github.io", //仓库
+        repoId: "R_kgDOP5tN1g", //仓库ID
         category: "General", // 讨论分类
-        categoryId: "DIC_kwDOP5ClHc4CwEgt", //讨论分类ID
+        categoryId: "DIC_kwDOP5tN1s4CwEuS", //讨论分类ID
         mapping: "pathname",
         inputPosition: "bottom",
         lang: "zh-CN",

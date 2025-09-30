@@ -31,6 +31,7 @@ const sidebar = {
       {
         text: "搭建开发环境",
         base: "/programming/build-env/",
+        collapsed: false,
         items: [
           {
             text: "终端",
@@ -103,6 +104,7 @@ const sidebar = {
       },
       {
         text: "算法",
+        collapsed: false,
         base: "/programming/algorithm/",
         items: [
           {
