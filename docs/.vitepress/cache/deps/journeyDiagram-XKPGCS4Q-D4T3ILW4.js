@@ -1,12 +1,12 @@
 import {
+  getIconStyles
+} from "./chunk-5DA2AXAG.js";
+import {
   drawBackgroundRect,
   drawRect,
   drawText,
   getNoteRect
 } from "./chunk-DO3UERGD.js";
-import {
-  getIconStyles
-} from "./chunk-5DA2AXAG.js";
 import "./chunk-4E7QQ6VT.js";
 import {
   clear,
@@ -1299,4 +1299,4 @@ var diagram = {
 export {
   diagram
 };
-//# sourceMappingURL=journeyDiagram-XKPGCS4Q-4B3XA227.js.map
+//# sourceMappingURL=journeyDiagram-XKPGCS4Q-D4T3ILW4.js.map

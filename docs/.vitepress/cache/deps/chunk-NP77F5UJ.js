@@ -3,7 +3,7 @@ import {
   insertEdgeLabel,
   markers_default,
   positionEdgeLabel
-} from "./chunk-PMPXGWNX.js";
+} from "./chunk-QDLJIA5Q.js";
 import {
   insertCluster,
   insertNode,
@@ -45,7 +45,7 @@ var registerDefaultLayoutLoaders = __name(() => {
   registerLayoutLoaders([
     {
       name: "dagre",
-      loader: __name(async () => await import("./dagre-6UL2VRFP-IYMSUSWX.js"), "loader")
+      loader: __name(async () => await import("./dagre-6UL2VRFP-YDJOG2AH.js"), "loader")
     },
     ...true ? [
       {
@@ -82,4 +82,4 @@ export {
   render,
   getRegisteredLayoutAlgorithm
 };
-//# sourceMappingURL=chunk-LI4ZHLRL.js.map
+//# sourceMappingURL=chunk-NP77F5UJ.js.map

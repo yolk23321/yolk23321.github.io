@@ -70,4 +70,4 @@ var MermaidParseError = (_a = class extends Error {
 export {
   parse
 };
-//# sourceMappingURL=chunk-UPXORBK5.js.map
+//# sourceMappingURL=chunk-K5LDEBOB.js.map

@@ -8,7 +8,9 @@
 
 2. 忽略第 ① 步中找到的最大元素，重复执行步骤 ①，直到全部元素有序
 
-<video src="./imgs/1.mp4" controls></video>
+<!-- <video src="./imgs/1.mp4" controls></video> -->
+
+<xgplayer url="./imgs/1.mp4" />
 
 ## 2.实现
 

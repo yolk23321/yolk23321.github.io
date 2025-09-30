@@ -1,13 +1,12 @@
 import {
+  getIconStyles
+} from "./chunk-5DA2AXAG.js";
+import {
   Graph
 } from "./chunk-OPAXKTLS.js";
 import {
   clone_default
 } from "./chunk-MZBSQ3WT.js";
-import {
-  getIconStyles
-} from "./chunk-5DA2AXAG.js";
-import "./chunk-J7K2MAH4.js";
 import {
   getLineFunctionsWithOffset
 } from "./chunk-BK6IWHVY.js";
@@ -18,6 +17,7 @@ import {
   createText,
   replaceIconSubstring
 } from "./chunk-FHURQRQV.js";
+import "./chunk-J7K2MAH4.js";
 import {
   decodeEntities,
   getStylesFromArray,
@@ -3744,4 +3744,4 @@ var diagram = {
 export {
   diagram
 };
-//# sourceMappingURL=blockDiagram-VD42YOAC-Y6CJAGH2.js.map
+//# sourceMappingURL=blockDiagram-VD42YOAC-LEIOZMDV.js.map

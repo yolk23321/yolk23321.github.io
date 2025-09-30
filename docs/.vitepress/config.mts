@@ -335,7 +335,7 @@ export default defineConfig({
       options: {
         appId: "4WG0I5MRK9",
         apiKey: "20a6ae93a1145cede55dfdd3c910cbe2",
-        indexName: "docs",
+        indexName: "blog-crawler",
         locales: {
           root: {
             placeholder: "搜索文档",
