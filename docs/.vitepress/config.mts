@@ -157,6 +157,10 @@ const sidebar = {
                 text: "归并排序",
                 link: "/sort/merge/",
               },
+              {
+                text: "快速排序",
+                link: "/sort/quick/",
+              },
             ],
           },
           {

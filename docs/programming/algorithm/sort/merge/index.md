@@ -260,4 +260,4 @@ public class MergeSort<E extends Comparable<E>> extends Sort<E> {
 
 - `T(n) = n * S(n) = n * O(logn) = O(nlogn)`
   
-所以归并排序的最好、最坏、平均时间复杂度均为`O(nlogn)`，空间复杂度为`O(n/2 + logn) = O(n)`（`n/2`是开辟了新数组，`logn`是因为递归调用），它属于`稳定`排序，`不是 In-place`排序。
+所以归并排序的最好、最坏、平均时间复杂度均为`O(nlogn)`，空间复杂度为`O(n/2 + logn) = O(n)`（`n/2`是开辟了新数组，`logn`是因为递归调用），它属于`稳定、In-place`排序。
