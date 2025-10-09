@@ -310,11 +310,11 @@ public abstract class Sort<E extends Comparable<E>> implements Comparable<Sort<E
 ```java
 package sort;
 
-import sort.bubble.BubbleSort1;
-import sort.bubble.BubbleSort2;
-import sort.bubble.BubbleSort3;
-import sort.heap.HeapSort;
-import sort.selection.SelectionSort;
+import sort.compare.bubble.BubbleSort1;
+import sort.compare.bubble.BubbleSort2;
+import sort.compare.bubble.BubbleSort3;
+import sort.compare.heap.HeapSort;
+import sort.compare.selection.SelectionSort;
 import utils.Integers;
 
 import java.util.Arrays;

@@ -86,7 +86,7 @@ private void sort(int begin, int end) {
 ### 3.完整代码
 
 ```java
-package sort.merge;
+package sort.cmparemerge;
 
 import sort.Sort;
 import utils.Integers;

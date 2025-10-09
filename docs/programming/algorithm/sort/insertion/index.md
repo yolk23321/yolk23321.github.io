@@ -24,7 +24,7 @@
 ## 2.实现
 
 ```java
-package sort.insertion;
+package sort.cmpareinsertion;
 
 import sort.Sort;
 import utils.Integers;
@@ -94,7 +94,7 @@ public class InsertionSort1<E extends Comparable<E>> extends Sort<E> {
 将大于`待插入元素`的元素依次向右移动一位，最后将`待插入元素`插入到正确位置。这样可以减少交换操作的次数，提高效率。
 
 ```java
-package sort.insertion;
+package sort.cmpareinsertion;
 
 import sort.Sort;
 import utils.Integers;
@@ -196,7 +196,7 @@ public class InsertionSort2<E extends Comparable<E>> extends Sort<E> {
 #### 代码实现
 
 ```java
-package sort.insertion;
+package sort.cmpareinsertion;
 
 /**
  * 二分搜索
@@ -332,7 +332,7 @@ public class BinarySearch {
 2. 完整实现
    
     ```java
-    package sort.insertion;
+    package sort.cmpareinsertion;
 
     import sort.Sort;
     import utils.Integers;

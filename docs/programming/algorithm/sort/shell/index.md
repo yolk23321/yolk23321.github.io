@@ -62,7 +62,7 @@
 ## 3.代码实现
 
 ```java
-package sort.shell;
+package sort.cmpareshell;
 
 import sort.Sort;
 import utils.Integers;

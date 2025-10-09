@@ -42,7 +42,7 @@
    `begin`: 从第 1 个元素开始，找到最大的元素并放到`end`位置
 
     ```java
-    package sort.selection;
+    package sort.cmpareselection;
 
     import sort.Sort;
     import utils.Integers;

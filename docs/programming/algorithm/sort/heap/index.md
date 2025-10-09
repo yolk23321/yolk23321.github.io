@@ -48,7 +48,7 @@
 2. 完整实现
 
     ```java
-    package sort.heap;
+    package sort.cmpareheap;
 
     import sort.Sort;
     import utils.Integers;

@@ -35,7 +35,7 @@
    `begin`: 从第 1 个元素开始，找到最大的元素并放到`end`位置
 
     ```java
-    package sort.bubble;
+    package sort.cmparebubble;
 
     import sort.Sort;
     import utils.Integers;
@@ -114,7 +114,7 @@
 > `某一趟比较中如果没有发生交换，说明数组已经有序`
 
 ```java
-package sort.bubble;
+package sort.cmparebubble;
 
 import sort.Sort;
 import utils.Integers;
@@ -185,7 +185,7 @@ public class BubbleSort2<E extends Comparable<E>> extends Sort<E> {
 > `某一趟比较中最后一次发生交换的位置，其后面的元素都是有序的`
 
 ```java
-package sort.bubble;
+package sort.cmparebubble;
 
 import sort.Sort;
 import utils.Integers;

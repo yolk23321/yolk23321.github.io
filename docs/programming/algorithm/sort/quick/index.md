@@ -38,7 +38,7 @@
 ### 2.2.完整实现
 
 ```java
-package sort.quick;
+package sort.cmparequick;
 
 import sort.Sort;
 import utils.Integers;
