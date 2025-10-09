@@ -40,10 +40,10 @@ public class InsertionSort1<E extends Comparable<E>> extends Sort<E> {
 
     @Override
     protected void sort() {
-        // right 表示从第 2 个元素开始未排序的部分
-        for (int right = 1; right < array.length; right++) {
+        // begin 表示从第 2 个元素开始未排序的部分
+        for (int begin = 1; begin < array.length; begin++) {
             // current 记录当前元素的索引位置
-            int current = right;
+            int current = begin;
 
             /*
             与左边已经排序的部分挨个进行比较，循环条件：
@@ -110,12 +110,12 @@ public class InsertionSort2<E extends Comparable<E>> extends Sort<E> {
 
     @Override
     protected void sort() {
-        for (int right = 1; right < array.length; right++) {
+        for (int begin = 1; begin < array.length; begin++) {
             // 记录当前元素
-            E e = array[right];
+            E e = array[begin];
 
             // current 表示当前元素应该和谁进行比较
-            int current = right - 1;
+            int current = begin - 1;
 
             /*
             当前元素比 e 大，则继续向左比较
@@ -155,7 +155,7 @@ public class InsertionSort2<E extends Comparable<E>> extends Sort<E> {
 > 
 > 在`InsertionSort1`中，`current`记录的是当前元素的索引位置。
 > 
-> 在`InsertionSort2`中，`current`记录的是当前元素应该和谁进行比较，因此初始值为`right - 1`。
+> 在`InsertionSort2`中，`current`记录的是当前元素应该和谁进行比较，因此初始值为`begin - 1`。
 
 上述代码执行结果：
 
@@ -349,20 +349,20 @@ public class BinarySearch {
 
         @Override
         protected void sort() {
-            for (int right = 1; right < array.length; right++) {
+            for (int begin = 1; begin < array.length; begin++) {
                 // 记录当前元素
-                E e = array[right];
+                E e = array[begin];
 
                 // 使用二分搜索，查找 e 应该插入的位置
-                int insertIndex = search(right, e);
+                int insertIndex = search(begin, e);
 
-                // 将 [insertIndex, right) 区间的元素都向后移动一位
+                // 将 [insertIndex, begin) 区间的元素都向后移动一位
 
-                // for (int moveIndex = right - 1; moveIndex >= insertIndex; moveIndex--) {
+                // for (int moveIndex = begin - 1; moveIndex >= insertIndex; moveIndex--) {
                 //     // 向后移动一位
                 //     array[moveIndex +1] = array[moveIndex];
                 // }
-                for (int i = right; i > insertIndex; i--) {
+                for (int i = begin; i > insertIndex; i--) {
                     // 向后移动一位
                     array[i] = array[i - 1];
                 }

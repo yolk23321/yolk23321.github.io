@@ -255,7 +255,7 @@ public abstract class Sort<E extends Comparable<E>> implements Comparable<Sort<E
   </tr>
   <tr>
     <td>希尔排序（Shell Sort）</td>
-    <td><span style="color:#00BFFF">O(n)</span></td>
+    <td><span style="color:#00BFFF">O(nlogn)</span></td>
     <td><span style="color:#FF1493">O(n<sup>4/3</sup>) ~ O(n²)</span></td>
     <td><span style="color:#A9A9A9">取决于步长序列</span></td>
     <td><span style="color:#00CED1">O(1)</span></td>

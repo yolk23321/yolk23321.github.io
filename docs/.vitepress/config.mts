@@ -161,6 +161,10 @@ const sidebar = {
                 text: "快速排序",
                 link: "/sort/quick/",
               },
+              {
+                text: "希尔排序",
+                link: "/sort/shell/",
+              },
             ],
           },
           {
