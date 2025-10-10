@@ -170,6 +170,14 @@ const sidebar = {
                 text: "计数排序",
                 link: "/sort/counting/",
               },
+              {
+                text: "基数排序",
+                link: "/sort/radix/",
+              },
+              {
+                text: "桶排序",
+                link: "/sort/bucket/",
+              },
             ],
           },
           {
