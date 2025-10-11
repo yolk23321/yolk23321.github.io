@@ -98,6 +98,10 @@ const sidebar = {
             link: "/linked-list/",
           },
           {
+            text: "栈",
+            link: "/stack/",
+          },
+          {
             text: "树",
             collapsed: true,
             items: [
@@ -129,6 +133,14 @@ const sidebar = {
           {
             text: "前言",
             link: "/",
+          },
+          {
+            text: "递归",
+            link: "/recursion/",
+          },
+          {
+            text: "分治",
+            link: "/divide-conquer/",
           },
           {
             text: "排序",
@@ -184,10 +196,6 @@ const sidebar = {
             text: "动态规划",
             link: "/dynamic-programming/",
             items: [],
-          },
-          {
-            text: "分治",
-            link: "/divide-conquer/",
           },
         ],
       },
@@ -346,7 +354,12 @@ export default defineConfig({
           ts: localIconLoader(import.meta.url, "../public/svg/typescript.svg"), //本地ts图标导入
           md: localIconLoader(import.meta.url, "../public/svg/md.svg"), //markdown图标
           css: localIconLoader(import.meta.url, "../public/svg/css.svg"), //css图标
-          js: "logos:javascript", //js图标
+          shell: localIconLoader(import.meta.url, "../public/svg/shell.svg"),
+          docker: localIconLoader(import.meta.url, "../public/svg/docker.svg"),
+          js: "logos:javascript",
+          java: "logos:java",
+          python: "logos:python",
+          go: "logos:go",
         },
       }),
       [MermaidPlugin()],

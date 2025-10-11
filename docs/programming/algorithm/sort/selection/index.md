@@ -112,7 +112,7 @@
 
     > 继承的`Sort`父类来自[封装公共父类](/programming/algorithm/sort/#_3-封装公共父类)
     > 
-    > `Integers`类来自[工具类](/programming/algorithm/sort/#_5-1-integers-java)
+    > `Integers`类来自[工具类](/programming/algorithm/#_5-1-integers-java)
 
 ## 3.分析
 

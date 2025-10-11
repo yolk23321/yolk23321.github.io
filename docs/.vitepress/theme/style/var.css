@@ -83,6 +83,10 @@
   max-width: 100%;
 }
 
+.rendered-md.active p {
+  margin: 0 !important;
+}
+
 /* 视频 */
 video {
   max-width: 100%;

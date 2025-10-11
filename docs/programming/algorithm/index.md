@@ -288,3 +288,365 @@ public static void test(int n, m) {
 | `T(n) = T(n - 1) + O(n)`       | **O(n²)**   |
 | `T(n) = 2 * T(n - 1) + O(1)`   | **O(2ⁿ)**   |
 | `T(n) = 2 * T(n - 1) + O(n)`   | **O(2ⁿ)**   | 
+
+
+## 5.工具类
+
+### 5.1.Integers.java
+
+用于生成各种类型的整数数组，如：随机数组、升序数组、降序数组、部分有序数组等
+
+```java
+package utils;
+
+import java.util.Arrays;
+import java.util.Random;
+
+/**
+ * 整数数组工具类
+ * 提供各种生成、操作和检查整数数组的静态方法
+ */
+public class Integers {
+
+    private static final Random RANDOM = new Random();
+
+    /** 随机生成 count 个 [min, max] 的整数 */
+    public static Integer[] random(int count, int min, int max) {
+        Integer[] array = new Integer[count];
+        int delta = max - min + 1;
+        for (int i = 0; i < count; i++) {
+            array[i] = min + RANDOM.nextInt(delta);
+        }
+        return array;
+    }
+
+    /** 合并两个数组 */
+    public static Integer[] combine(Integer[] array1, Integer[] array2) {
+        Integer[] array = new Integer[array1.length + array2.length];
+        System.arraycopy(array1, 0, array, 0, array1.length);
+        System.arraycopy(array2, 0, array, array1.length, array2.length);
+        return array;
+    }
+
+    /** 生成前 unsameCount 个不同，剩余相同的数组 */
+    public static Integer[] same(int count, int unsameCount) {
+        Integer[] array = new Integer[count];
+        for (int i = 0; i < unsameCount; i++) {
+            array[i] = unsameCount - i;
+        }
+        for (int i = unsameCount; i < count; i++) {
+            array[i] = unsameCount + 1;
+        }
+        return array;
+    }
+
+    /** 头尾升序，中间 disorderCount 个反序 */
+    public static Integer[] headTailAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+
+        int begin = (array.length - disorderCount) >> 1;
+        reverse(array, begin, begin + disorderCount);
+        return array;
+    }
+
+    /** 中心升序，头尾 disorderCount 个反序 */
+    public static Integer[] centerAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+
+        int left = disorderCount >> 1;
+        reverse(array, 0, left);
+
+        int right = disorderCount - left;
+        reverse(array, array.length - right, array.length);
+        return array;
+    }
+
+    /** 头升序，尾 disorderCount 个反序 */
+    public static Integer[] headAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+        reverse(array, array.length - disorderCount, array.length);
+        return array;
+    }
+
+    /** 尾升序，头 disorderCount 个反序 */
+    public static Integer[] tailAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+        reverse(array, 0, disorderCount);
+        return array;
+    }
+
+    /** 升序数组 [min, max] */
+    public static Integer[] ascOrder(int min, int max) {
+        Integer[] array = new Integer[max - min + 1];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = min++;
+        }
+        return array;
+    }
+
+    /** 降序数组 [min, max] */
+    public static Integer[] descOrder(int min, int max) {
+        Integer[] array = new Integer[max - min + 1];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = max--;
+        }
+        return array;
+    }
+
+    /** 反转数组，索引范围 [begin, end) */
+    private static void reverse(Integer[] array, int begin, int end) {
+        int count = (end - begin) >> 1;
+        int sum = begin + end - 1;
+        for (int i = begin; i < begin + count; i++) {
+            int j = sum - i;
+            Integer tmp = array[i];
+            array[i] = array[j];
+            array[j] = tmp;
+        }
+    }
+
+    /** 复制数组 */
+    public static Integer[] copy(Integer[] array) {
+        return Arrays.copyOf(array, array.length);
+    }
+
+    /** 判断是否升序 */
+    public static boolean isAscOrder(Integer[] array) {
+        if (array == null || array.length == 0) return false;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] > array[i]) return false;
+        }
+        return true;
+    }
+
+    /** 打印数组 */
+    public static void println(Integer[] array) {
+        System.out.println("-------------------------------------");
+        System.out.println(Arrays.toString(array));
+    }
+}
+```
+
+#### 使用示例
+
+```java
+package utils;
+
+import java.util.Arrays;
+import java.util.Random;
+
+/**
+ * 整数数组工具类
+ * 提供各种生成、操作和检查整数数组的静态方法
+ */
+public class Integers {
+
+    private static final Random RANDOM = new Random();
+
+    /**
+     * 随机生成 count 个 [min, max] 的整数
+     */
+    public static Integer[] random(int count, int min, int max) {
+        Integer[] array = new Integer[count];
+        int delta = max - min + 1;
+        for (int i = 0; i < count; i++) {
+            array[i] = min + RANDOM.nextInt(delta);
+        }
+        return array;
+    }
+
+    /**
+     * 合并两个数组
+     */
+    public static Integer[] combine(Integer[] array1, Integer[] array2) {
+        Integer[] array = new Integer[array1.length + array2.length];
+        System.arraycopy(array1, 0, array, 0, array1.length);
+        System.arraycopy(array2, 0, array, array1.length, array2.length);
+        return array;
+    }
+
+    /**
+     * 生成前 unsameCount 个不同，剩余相同的数组
+     */
+    public static Integer[] same(int count, int unsameCount) {
+        Integer[] array = new Integer[count];
+        for (int i = 0; i < unsameCount; i++) {
+            array[i] = unsameCount - i;
+        }
+        for (int i = unsameCount; i < count; i++) {
+            array[i] = unsameCount + 1;
+        }
+        return array;
+    }
+
+    /**
+     * 头尾升序，中间 disorderCount 个反序
+     */
+    public static Integer[] headTailAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+
+        int begin = (array.length - disorderCount) >> 1;
+        reverse(array, begin, begin + disorderCount);
+        return array;
+    }
+
+    /**
+     * 中心升序，头尾 disorderCount 个反序
+     */
+    public static Integer[] centerAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+
+        int left = disorderCount >> 1;
+        reverse(array, 0, left);
+
+        int right = disorderCount - left;
+        reverse(array, array.length - right, array.length);
+        return array;
+    }
+
+    /**
+     * 头升序，尾 disorderCount 个反序
+     */
+    public static Integer[] headAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+        reverse(array, array.length - disorderCount, array.length);
+        return array;
+    }
+
+    /**
+     * 尾升序，头 disorderCount 个反序
+     */
+    public static Integer[] tailAscOrder(int min, int max, int disorderCount) {
+        Integer[] array = ascOrder(min, max);
+        if (disorderCount > array.length) return array;
+        reverse(array, 0, disorderCount);
+        return array;
+    }
+
+    /**
+     * 升序数组 [min, max]
+     */
+    public static Integer[] ascOrder(int min, int max) {
+        Integer[] array = new Integer[max - min + 1];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = min++;
+        }
+        return array;
+    }
+
+    /**
+     * 降序数组 [min, max]
+     */
+    public static Integer[] descOrder(int min, int max) {
+        Integer[] array = new Integer[max - min + 1];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = max--;
+        }
+        return array;
+    }
+
+    /**
+     * 反转数组，索引范围 [begin, end)
+     */
+    private static void reverse(Integer[] array, int begin, int end) {
+        int count = (end - begin) >> 1;
+        int sum = begin + end - 1;
+        for (int i = begin; i < begin + count; i++) {
+            int j = sum - i;
+            Integer tmp = array[i];
+            array[i] = array[j];
+            array[j] = tmp;
+        }
+    }
+
+    /**
+     * 复制数组
+     */
+    public static Integer[] copy(Integer[] array) {
+        return Arrays.copyOf(array, array.length);
+    }
+
+    /**
+     * 判断是否升序
+     */
+    public static boolean isAscOrder(Integer[] array) {
+        if (array == null || array.length == 0) return false;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] > array[i]) return false;
+        }
+        return true;
+    }
+
+    /**
+     * 打印数组
+     */
+    public static void println(Integer[] array) {
+        System.out.println("-------------------------------------");
+        System.out.println(Arrays.toString(array));
+    }
+}
+```
+
+### 5.2.Times.java
+
+用于测试某段代码的执行时间。
+
+```java
+package utils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Times {
+	private static final SimpleDateFormat fmt = new SimpleDateFormat("HH:mm:ss.SSS");
+
+	public interface Task {
+		void execute();
+	}
+
+    public static void test(String title, Task task) {
+        if (task == null) return;
+
+        title = (title == null) ? "" : ("【" + title + "】");
+        System.out.println(title);
+
+        // 打印可读开始时间
+        Date startDate = new Date();
+        System.out.println("开始：" + fmt.format(startDate));
+
+        // 高精度计时开始
+        long beginNano = startDate.getTime();
+        task.execute();
+        Date endDate = new Date();
+        long endNano = endDate.getTime();
+
+        // 打印可读结束时间
+        System.out.println("结束：" + fmt.format(endDate));
+
+        // 计算耗时，单位为秒，保留3位小数
+        double deltaSeconds = (endNano - beginNano) / 1000.0;
+        System.out.println("耗时：" + String.format("%.3f", deltaSeconds) + "秒");
+
+        System.out.println("-------------------------------------");
+    }
+
+}
+```
+
+#### 使用方式
+
+```java
+Times.test("测试任务", new Times.Task() {
+    @Override
+    public void execute() {
+        // 需要测试的代码
+    }
+});
+```
