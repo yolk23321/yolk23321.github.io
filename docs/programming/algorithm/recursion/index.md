@@ -1,5 +1,7 @@
 # 递归（Recursion）
 
+## 1.概述
+
 递归是一种编程技巧，其中一个函数直接或间接地调用自身以解决问题。
 
 递归通常用于解决可以分解为更小的子问题的问题，如：
@@ -13,7 +15,7 @@ int sum(int n) {
 }
 ```
 
-## 1.函数的递归调用过程
+## 2.函数的递归调用过程
 
 ```java
 public static void main(String[] args) {
@@ -76,7 +78,7 @@ private static int sum(int n) {
 
 所以递归必须要有一个明确的`终止条件`（边界条件、递归基）。
 
-## 2.基本思想
+## 3.基本思想
 
 1. `拆解问题`
    1. 把规模大的问题，拆解成规模较小的问题。
@@ -94,7 +96,7 @@ private static int sum(int n) {
 >
 > 2. 使用递归解决问题很有可能不是最高效的方式，但不是一定的，有些问题使用递归反而是最高效的方式，比如：`快速排序`、`归并排序`等。
 
-## 3.使用套路
+## 4.使用套路
 
 1. 明确函数的功能
    
@@ -108,13 +110,13 @@ private static int sum(int n) {
    
    相当于思考：问题规模小到什么程度时，可以直接解决？
 
-## 4.分析
+## 5.分析
 
 假设递归深度为`d`，每次调用函数时，都会在栈空间中分配`k`大小的空间，消耗`O(n)`的时间复杂度，那么总的时间复杂度为`O(d * n)`，空间复杂度为`O(d * k)`。
 
-## 5.练习
+## 6.练习
 
-### 5.1.[斐波那契数列](https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/description/)
+### 6.1.[斐波那契数列](https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/description/)
 
 斐波那契数 （通常用`F(n)`表示）形成的序列称为斐波那契数列（Fibonacci sequence），该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：
 
@@ -240,7 +242,7 @@ public class Fibonacci {
 
 > `Times`类来自[工具类](/programming/algorithm/#_5-2-times-java)
 
-### 5.2.[爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
+### 6.2.[爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 
 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
 
@@ -284,7 +286,7 @@ public class ClimStairs {
 }
 ```
 
-### 5.3.[汉诺塔](https://leetcode.cn/problems/hanota-lcci/description/)（Hanoi Tower）
+### 6.3.[汉诺塔](https://leetcode.cn/problems/hanota-lcci/description/)（Hanoi Tower）
 
 在经典汉诺塔问题中，有`3`根柱子及`N`个不同大小的穿孔圆盘，盘子可以滑入任意一根柱子。一开始，所有盘子`自上而下按升序`依次套在第一根柱子上(即每一个盘子只能放在更大的盘子上面)。
 
@@ -466,7 +468,7 @@ public class HanoTower {
 }
 ```
 
-## 6.递归转非递归
+## 7.递归转非递归
 
 有些时候递归会存在大量的重复计算，性能非常差，这时候可以考虑将递归转换成迭代形式（`递归 100% 可以转换成迭代`）。
 
@@ -533,7 +535,7 @@ static void log(int n) {
 
 :::
 
-## 7.尾调用（Tail Call）
+## 8.尾调用（Tail Call）
 
 `尾调用`：指一个函数的`最后一步是调用函数`，如下方代码
 
@@ -558,7 +560,7 @@ void testB(int n) {
 }
 ```
 
-### 7.1.尾调用优化（Tail Call Optimization）
+### 8.1.尾调用优化（Tail Call Optimization）
 
 也称为`尾调用消除`，是编译器或解释器对尾调用进行的一种优化技术，以达到节省栈空间的目的，如下：
 
@@ -584,7 +586,7 @@ void testB(int n) {
 
 因为函数最后一步调用另一个函数时，当前函数的参数、变量等信息已经不再需要，所以分配给它的栈空间没有用了，而最后调用的那个函数马上也要分配栈空间，所以可以直接复用当前函数的栈空间，从而节省栈空间。
 
-### 7.2.尾递归（Tail Recursion）
+### 8.2.尾递归（Tail Recursion）
 
 如果一个函数`在尾调用自身`，那么这个函数就是`尾递归`
 

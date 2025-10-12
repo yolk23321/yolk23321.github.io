@@ -139,6 +139,10 @@ const sidebar = {
             link: "/recursion/",
           },
           {
+            text: "回溯",
+            link: "/backtracking/",
+          },
+          {
             text: "分治",
             link: "/divide-conquer/",
           },
