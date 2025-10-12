@@ -1,6 +1,6 @@
 # 快速排序（Quick Sort）
 
-1960 年由`查尔斯·安东尼·理查德·霍尔（Charles Antony Richard Hoare）`，昵称为`东尼·霍尔`（Tony Hoare）发明的一种排序算法。也是[分治法](../../divide-conquer/)的典型应用。
+1960 年由`查尔斯·安东尼·理查德·霍尔（Charles Antony Richard Hoare）`，昵称为`东尼·霍尔`（Tony Hoare）发明的一种排序算法。也是[分治法](/programming/algorithm/strategy/divide-conquer/)的典型应用。
 
 ## 1.流程
 

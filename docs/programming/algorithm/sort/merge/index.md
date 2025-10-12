@@ -1,6 +1,6 @@
 # 归并排序（Merge Sort）
 
-1945 年由`约翰·冯·诺依曼（John von Neumann）`提出的一种基于[分治法](../../divide-conquer/)的排序算法。
+1945 年由`约翰·冯·诺依曼（John von Neumann）`提出的一种基于[分治法](/programming/algorithm/strategy/divide-conquer/)的排序算法。
 
 ## 1.流程
 

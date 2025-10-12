@@ -135,16 +135,34 @@ const sidebar = {
             link: "/",
           },
           {
-            text: "递归",
-            link: "/recursion/",
-          },
-          {
-            text: "回溯",
-            link: "/backtracking/",
-          },
-          {
-            text: "分治",
-            link: "/divide-conquer/",
+            text: "算法策略",
+            collapsed: true,
+            items: [
+              {
+                text: "前言",
+                link: "/strategy/",
+              },
+              {
+                text: "递归",
+                link: "/strategy/recursion/",
+              },
+              {
+                text: "回溯",
+                link: "/strategy/backtracking/",
+              },
+              {
+                text: "贪心",
+                link: "/strategy/greedy/",
+              },
+              {
+                text: "分治",
+                link: "/strategy/divide-conquer/",
+              },
+              {
+                text: "动态规划",
+                link: "/strategy/dynamic-programming/",
+              },
+            ],
           },
           {
             text: "排序",
@@ -197,9 +215,8 @@ const sidebar = {
             ],
           },
           {
-            text: "动态规划",
-            link: "/dynamic-programming/",
-            items: [],
+            text: "字符串",
+            link: "/string/",
           },
         ],
       },
