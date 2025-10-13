@@ -7,7 +7,6 @@
 
 ## 1.常见的算法策略
 
-- [递归（Recursion）](./recursion)
 - [回溯（Backtracking）](./backtracking)
 - [贪心（Greedy）](./greedy)
 - [分治（Divide and Conquer）](./divide-conquer)

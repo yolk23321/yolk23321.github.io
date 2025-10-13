@@ -99,7 +99,7 @@ import java.util.Arrays;
  */
 public class CoinChange {
 
-    public static int change1(int[] coins, int amount) {
+    public static int change(int[] coins, int amount) {
         Arrays.sort(coins);
         int count = 0;
 
@@ -125,7 +125,7 @@ public class CoinChange {
     public static void main(String[] args) {
         int[] coins = {1, 25, 5, 10};
         int amount = 41;
-        System.out.println(change1(coins, amount));
+        System.out.println(change(coins, amount));
     }
 
 }

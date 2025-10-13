@@ -135,16 +135,16 @@ const sidebar = {
             link: "/",
           },
           {
+            text: "递归",
+            link: "/recursion/",
+          },
+          {
             text: "算法策略",
             collapsed: true,
             items: [
               {
                 text: "前言",
                 link: "/strategy/",
-              },
-              {
-                text: "递归",
-                link: "/strategy/recursion/",
               },
               {
                 text: "回溯",
