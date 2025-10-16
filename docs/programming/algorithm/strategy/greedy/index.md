@@ -73,9 +73,9 @@ public class Caribbean {
 
 ### 2.2.[零钱兑换](https://leetcode.cn/problems/coin-change/description/)
 
-给定不同面额的硬币`coins`（数量是无限的）和一个总金额 `amount`，编写一个函数来计算可以凑成总金额所需的最少的硬币个数，如果没有任何一种硬币组合能组成总金额，返回`-1`。
+给定不同面额的硬币`coins`（数量是无限的）和一个总金额 `n`，编写一个函数来计算可以凑成总金额所需的最少的硬币个数，如果没有任何一种硬币组合能组成总金额，返回`-1`。
 
-比如：`coins = [25, 10, 5, 1], amount = 41`
+比如：`coins = [25, 10, 5, 1], n = 41`
 
 贪心策略：每次都选择`面额最大的`硬币，直到凑成总金额为止，如下：
 
@@ -93,29 +93,30 @@ import java.util.Arrays;
 
 /**
  * 零钱兑换问题
- *
+ * <a href="https://leetcode.cn/problems/coin-change/">...</a>
+ * 
  * @author yolk
  * @since 2025/10/13 01:00
  */
 public class CoinChange {
 
-    public static int change(int[] coins, int amount) {
+    public static int change(int[] coins, int n) {
         Arrays.sort(coins);
         int count = 0;
 
         for (int i = coins.length - 1; i >= 0; i--) {
-            if (amount < coins[i]) {
+            if (n < coins[i]) {
                 // 面值过大，无法使用
                 continue;
             }
-            amount -= coins[i];
+            n -= coins[i];
             count++;
             System.out.println("选择面值为 " + coins[i] + " 的硬币");
             // 继续尝试使用当前面值的硬币
             i++;
         }
 
-        if (amount > 0) {
+        if (n > 0) {
             return -1;
         }
 
@@ -124,14 +125,14 @@ public class CoinChange {
 
     public static void main(String[] args) {
         int[] coins = {1, 25, 5, 10};
-        int amount = 41;
-        System.out.println(change(coins, amount));
+        int n = 41;
+        System.out.println(change(coins, n));
     }
 
 }
 ```
 
-上述实现是正确的吗？假如输入的数据是：`coins = [25, 20, 5, 1], amount = 41`，还是按照上述贪心策略，则：
+上述实现是正确的吗？假如输入的数据是：`coins = [25, 20, 5, 1], n = 41`，还是按照上述贪心策略，则：
 
 1. 选择`25`，剩余金额`16`
 2. 选择`5`，剩余金额`11`
@@ -141,9 +142,9 @@ public class CoinChange {
 
 那么最少需要`5`枚硬币，分别是`[25, 5, 5, 5, 1]`，但是最优解是`3`枚硬币，分别是`[20, 20, 1]`，这也验证了`贪心策略并不一定能得到全局最优解`。
 
-### 2.3.[0-1 背包](https://leetcode.cn/problems/maximum-price-to-fill-a-bag/description/)
+### 2.3.0-1 背包
 
-有一个容量为`W`的背包和`n`件物品，每件物品有重量`w[i]`和价值`v[i]`，问如何选择装入背包的物品（每件物品只能选择一次），使得在不超过背包容量的前提下，背包内物品的总价值最大。
+有一个最大承重为`W`的背包和`n`件物品，每件物品有重量`w[i]`和价值`v[i]`，问如何选择装入背包的物品（每件物品只能选择一次），使得在不超过背包承量的前提下，背包内物品的总价值最大。
 
 采用贪心策略，有`3`种方案：
 
@@ -205,7 +206,7 @@ public class Backpack {
     /**
      * 使用贪心策略选择物品
      *
-     * @param W          背包容量
+     * @param W          背包承量
      * @param items      物品列表
      * @param comparator 物品比较器
      */
@@ -218,7 +219,7 @@ public class Backpack {
             Item item = items[i];
 
             if (item.weight > W) {
-                // 如果该物品重量就超过背包容量，则跳过
+                // 如果该物品重量就超过背包承量，则跳过
                 continue;
             }
 
@@ -255,7 +256,7 @@ public class Backpack {
                 new Item(25, 30)
         };
 
-        // 背包容量
+        // 背包承量
         int W = 150;
 
         // 价值主导
