@@ -9,6 +9,7 @@ import {
 } from "vitepress-plugin-group-icons";
 import { MermaidMarkdown, MermaidPlugin } from "vitepress-plugin-mermaid";
 import { link } from "fs";
+import { text } from "stream/consumers";
 
 const { rewrites } = await usePosts();
 
@@ -18,7 +19,7 @@ const nav = [
   { text: "程序员", link: "/programming/" },
   { text: "兴趣", link: "/hobby/" },
   { text: "看世界", link: "/travel/" },
-  { text: "日程", link: "/schedule/" },
+//   { text: "日程", link: "/schedule/" },
 ];
 
 // 侧边栏
@@ -122,6 +123,22 @@ const sidebar = {
           {
             text: "堆",
             link: "/heap/",
+          },
+          {
+            text: "并查集",
+            link: "/union-find/",
+          },
+          {
+            text: "图",
+            link: "/graph/",
+          },
+          {
+            text: "布隆过滤器",
+            link: "/bloom-filter/",
+          },
+          {
+            text: "跳表",
+            link: "/skip-list/",
           },
         ],
       },
