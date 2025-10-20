@@ -19,7 +19,7 @@ const nav = [
   { text: "程序员", link: "/programming/" },
   { text: "兴趣", link: "/hobby/" },
   { text: "看世界", link: "/travel/" },
-//   { text: "日程", link: "/schedule/" },
+  //   { text: "日程", link: "/schedule/" },
 ];
 
 // 侧边栏
@@ -33,7 +33,7 @@ const sidebar = {
       {
         text: "搭建开发环境",
         base: "/programming/build-env/",
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: "终端",
@@ -88,7 +88,7 @@ const sidebar = {
       {
         text: "数据结构",
         base: "/programming/data-structure/",
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: "动态数组",
@@ -144,7 +144,7 @@ const sidebar = {
       },
       {
         text: "算法",
-        collapsed: false,
+        collapsed: true,
         base: "/programming/algorithm/",
         items: [
           {
@@ -232,7 +232,7 @@ const sidebar = {
             ],
           },
           {
-            text: "字符串",
+            text: "字符串匹配",
             link: "/string/",
           },
         ],
@@ -241,38 +241,58 @@ const sidebar = {
         text: "Java",
         base: "/programming/java/",
         collapsed: true,
-        items: [],
+        items: [
+          {
+            text: "Spring 集成 WebSocket",
+            link: "/spring-websocket/",
+          },
+        ],
       },
+      //   {
+      //     text: "Node",
+      //     base: "/programming/node/",
+      //     collapsed: true,
+      //     items: [],
+      //   },
+      //   {
+      //     text: "Python",
+      //     base: "/programming/python/",
+      //     collapsed: true,
+      //     items: [],
+      //   },
+      //   {
+      //     text: "Go",
+      //     base: "/programming/go/",
+      //     collapsed: true,
+      //     items: [],
+      //   },
       {
-        text: "Node",
-        base: "/programming/node/",
+        text: "协议",
+        base: "/programming/protocol/",
         collapsed: true,
-        items: [],
+        items: [
+          //   {
+          //     text: "HTTP",
+          //     link: "/http/",
+          //   },
+          {
+            text: "WebSocket 入门",
+            link: "/websocket/basic/",
+          },
+        ],
       },
-      {
-        text: "Python",
-        base: "/programming/python/",
-        collapsed: true,
-        items: [],
-      },
-      {
-        text: "Go",
-        base: "/programming/go/",
-        collapsed: true,
-        items: [],
-      },
-      {
-        text: "中间件",
-        base: "/programming/middleware/",
-        collapsed: true,
-        items: [],
-      },
-      {
-        text: "Docker & Kubernetes",
-        base: "/programming/docker-k8s/",
-        collapsed: true,
-        items: [],
-      },
+      //   {
+      //     text: "中间件",
+      //     base: "/programming/middleware/",
+      //     collapsed: true,
+      //     items: [],
+      //   },
+      //   {
+      //     text: "Docker & Kubernetes",
+      //     base: "/programming/docker-k8s/",
+      //     collapsed: true,
+      //     items: [],
+      //   },
     ],
   },
 };
