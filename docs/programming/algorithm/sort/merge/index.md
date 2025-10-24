@@ -1,6 +1,6 @@
 # 归并排序（Merge Sort）
 
-1945 年由`约翰·冯·诺依曼（John von Neumann）`提出的一种基于[分治法](/programming/algorithm/strategy/divide-conquer/)的排序算法。
+1945 年由**约翰·冯·诺依曼（John von Neumann）**提出的一种基于[分治法](/programming/algorithm/strategy/divide-conquer/)的排序算法。
 
 ## 1.流程
 
@@ -56,7 +56,7 @@ private void sort(int begin, int end) {
 
 <center><img src="./imgs/3.png" width="50%"></center>
 
-为了更好的完成`merge`操作，我们需要将其中一个数组的元素`复制`到一个临时数组中。
+为了更好的完成`merge`操作，我们需要将其中一个数组的元素**复制**到一个临时数组中。
 
 <center><img src="./imgs/4.png" width="50%"></center>
 
@@ -75,19 +75,17 @@ private void sort(int begin, int end) {
    
    ![](./imgs/6.png)
 
-   `已完成合并，直接退出循环`
+   **已完成合并，直接退出循环**
 
 2. 右边先结束
    
    ![](./imgs/7.png)
 
-    `将左边剩余的元素复制到数组剩余位置中`
+    **将左边剩余的元素复制到数组剩余位置中**
 
 ### 3.完整代码
 
 ```java
-package sort.cmparemerge;
-
 import sort.Sort;
 import utils.Integers;
 
@@ -193,14 +191,14 @@ public class MergeSort<E extends Comparable<E>> extends Sort<E> {
         while (li < le) {
             if (ri >= re || compare(leftArray[li], array[ri]) <= 0) {
                 /*
-                如果`右边先结束`，则将`左边剩余元素`依次放入原数组
-                又或者`左边元素 <= 右边元素`，则也需要将`左边元素`放入原数组
+                如果**右边先结束**，则将**左边剩余元素**依次放入原数组
+                又或者`左边元素 <= 右边元素`，则也需要将**左边元素**放入原数组
                 
                 另外这里使用 <=，保证排序的稳定性
                  */
                 array[ai++] = leftArray[li++];
             } else {
-                // 否则就是 左边元素 > 右边元素，则将`右边元素`放入原数组
+                // 否则就是 左边元素 > 右边元素，则将**右边元素**放入原数组
                 array[ai++] = array[ri++];
             }
         }

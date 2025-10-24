@@ -1,6 +1,6 @@
 # 希尔排序（Shell Sort）
 
-1959年由`唐纳德·希尔（Donald Shell）`提出，是插入排序的一种更高效的改进版本，先`大步`粗略调整，再`小步`精细调整。
+1959年由**唐纳德·希尔（Donald Shell）**提出，是插入排序的一种更高效的改进版本，先**大步**粗略调整，再**小步**精细调整。
 
 ## 1.流程
 
@@ -62,8 +62,6 @@
 ## 3.代码实现
 
 ```java
-package sort.cmpareshell;
-
 import sort.Sort;
 import utils.Integers;
 

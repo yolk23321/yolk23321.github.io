@@ -4,7 +4,7 @@
 
 计数排序不是比较排序，通过用空间换时间，在某些时候，平均时间复杂度可以比`O(nlogn)`更低。
 
-1954年，`Harold H. Seward`提出了计数排序算法，`适合对一定范围内的整数进行排序`。
+1954年，`Harold H. Seward`提出了计数排序算法，**适合对一定范围内的整数进行排序**。
 
 ## 1.流程
 
@@ -22,8 +22,6 @@
 ## 2.实现
 
 ```java
-package sort.counting;
-
 import sort.Sort;
 import utils.Integers;
 
@@ -174,8 +172,6 @@ public class CountingSort1 extends Sort<Integer> {
 ### 3.2.完整代码
 
 ```java
-package sort.counting;
-
 import sort.Sort;
 import utils.Integers;
 
@@ -258,4 +254,4 @@ public class CountingSort2 extends Sort<Integer> {
 
 > 是否可以实现对自定义对象的排序呢？
 >
-> 如果可以将自定义对象映射为整数，那么是可以的，例如：`年龄、成绩、工资`等。
+> 如果可以将自定义对象映射为整数，那么是可以的，例如：**年龄、成绩、工资**等。

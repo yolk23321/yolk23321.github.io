@@ -18,7 +18,7 @@ const nav = [
   { text: "首页", link: "/" },
   { text: "程序员", link: "/programming/" },
   { text: "兴趣", link: "/hobby/" },
-  { text: "看世界", link: "/travel/" },
+  //   { text: "看世界", link: "/travel/" },
   //   { text: "日程", link: "/schedule/" },
 ];
 
@@ -26,10 +26,10 @@ const nav = [
 const sidebar = {
   programming: {
     items: [
-      {
-        text: "前言",
-        link: "/programming/",
-      },
+      //   {
+      //     text: "前言",
+      //     link: "/programming/",
+      //   },
       {
         text: "搭建开发环境",
         base: "/programming/build-env/",
@@ -90,18 +90,18 @@ const sidebar = {
         base: "/programming/data-structure/",
         collapsed: true,
         items: [
-          {
-            text: "动态数组",
-            link: "/array-list/",
-          },
-          {
-            text: "链表",
-            link: "/linked-list/",
-          },
-          {
-            text: "栈",
-            link: "/stack/",
-          },
+          //   {
+          //     text: "动态数组",
+          //     link: "/array-list/",
+          //   },
+          //   {
+          //     text: "链表",
+          //     link: "/linked-list/",
+          //   },
+          //   {
+          //     text: "栈",
+          //     link: "/stack/",
+          //   },
           {
             text: "树",
             collapsed: true,
@@ -110,36 +110,36 @@ const sidebar = {
                 text: "前言",
                 link: "/tree/",
               },
-              {
-                text: "二叉树",
-                link: "/tree/binary",
-              },
+              //   {
+              //     text: "二叉树",
+              //     link: "/tree/binary",
+              //   },
             ],
           },
-          {
-            text: "Map",
-            link: "/map/",
-          },
+          //   {
+          //     text: "Map",
+          //     link: "/map/",
+          //   },
           {
             text: "堆",
             link: "/heap/",
           },
-          {
-            text: "并查集",
-            link: "/union-find/",
-          },
-          {
-            text: "图",
-            link: "/graph/",
-          },
+          //   {
+          //     text: "并查集",
+          //     link: "/union-find/",
+          //   },
+          //   {
+          //     text: "图",
+          //     link: "/graph/",
+          //   },
           {
             text: "布隆过滤器",
             link: "/bloom-filter/",
           },
-          {
-            text: "跳表",
-            link: "/skip-list/",
-          },
+          //   {
+          //     text: "跳表",
+          //     link: "/skip-list/",
+          //   },
         ],
       },
       {
@@ -231,10 +231,10 @@ const sidebar = {
               },
             ],
           },
-          {
-            text: "字符串匹配",
-            link: "/string/",
-          },
+          //   {
+          //     text: "字符串匹配",
+          //     link: "/string/",
+          //   },
         ],
       },
       {
@@ -242,6 +242,14 @@ const sidebar = {
         base: "/programming/java/",
         collapsed: true,
         items: [
+          {
+            text: "编译 JDK",
+            link: "/source-code/",
+          },
+          {
+            text: "Netty 入门",
+            link: "/netty/",
+          },
           {
             text: "Spring 集成 WebSocket",
             link: "/spring-websocket/",

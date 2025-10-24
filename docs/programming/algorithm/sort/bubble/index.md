@@ -12,7 +12,7 @@
 
 ## 2.实现
 
-1. 以`整数`为例，先实现找出数组中最大的元素移动到最右边
+1. 以**整数**为例，先实现找出数组中最大的元素移动到最右边
 
     ```java
     public static void findAndMoveMax(int[] arr) {
@@ -35,8 +35,6 @@
    `begin`: 从第 1 个元素开始，找到最大的元素并放到`end`位置
 
     ```java
-    package sort.cmparebubble;
-
     import sort.Sort;
     import utils.Integers;
 
@@ -114,8 +112,6 @@
 > `某一趟比较中如果没有发生交换，说明数组已经有序`
 
 ```java
-package sort.cmparebubble;
-
 import sort.Sort;
 import utils.Integers;
 
@@ -175,7 +171,7 @@ public class BubbleSort2<E extends Comparable<E>> extends Sort<E> {
 
 ### 3.2.优化 ②：利用已经排好序的部分，缩小比较范围
 
-在`优化 ①`中，只有全部排好序时才能提前退出，这种概率是非常低的。
+在**优化 ①**中，只有全部排好序时才能提前退出，这种概率是非常低的。
 
 如数组：`[55, 64, 64, 25, 41, 2, 3, 70, 84, 98]`，经过一轮比较后，`70, 84, 98`已经是有序的了，
 下一轮比较时是只需要再比较到元素`3`即可，如果是原先的实现方式，则依次比较到`70、84、98`，这部分比较是没有意义的
@@ -185,8 +181,6 @@ public class BubbleSort2<E extends Comparable<E>> extends Sort<E> {
 > `某一趟比较中最后一次发生交换的位置，其后面的元素都是有序的`
 
 ```java
-package sort.cmparebubble;
-
 import sort.Sort;
 import utils.Integers;
 
@@ -241,7 +235,7 @@ public class BubbleSort3<E extends Comparable<E>> extends Sort<E> {
 
 ## 4.分析
 
-按照优化 ② 的版本，最坏、平均时间复杂度均为`O(n^2)`，最好时间复杂度为`O(n)`，空间复杂度为`O(1)`，是`稳定`、`In-place（原地）`的排序算法。
+按照优化 ② 的版本，最坏、平均时间复杂度均为`O(n^2)`，最好时间复杂度为`O(n)`，空间复杂度为`O(1)`，是**稳定**、`In-place（原地）`的排序算法。
 
 
 

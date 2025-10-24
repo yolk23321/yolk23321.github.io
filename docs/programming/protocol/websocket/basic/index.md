@@ -6,11 +6,11 @@
 
 ## 1.消息推送常见的方式
 
-- `轮询`（Polling）：客户端定期向服务器发送请求，检查是否有新消息。这种方式简单但效率低下，因为即使没有新消息，客户端也会频繁发送请求，给服务器带来不必要的负担。
+- **轮询**（Polling）：客户端定期向服务器发送请求，检查是否有新消息。这种方式简单但效率低下，因为即使没有新消息，客户端也会频繁发送请求，给服务器带来不必要的负担。
   
   <center><img src="./imgs/2.png" style="max-width:50%;"></center>
 
-- 长轮询（Long Polling）：客户端发送请求后，服务器`保持连接`直到有新消息或超时，然后服务器响应客户端。客户端接收到响应后，会立即发送新的请求以继续监听新消息。这样可以减少请求的频率，提高实时性，不过服务器需要维护更多的连接，增加了资源消耗。
+- 长轮询（Long Polling）：客户端发送请求后，服务器**保持连接**直到有新消息或超时，然后服务器响应客户端。客户端接收到响应后，会立即发送新的请求以继续监听新消息。这样可以减少请求的频率，提高实时性，不过服务器需要维护更多的连接，增加了资源消耗。
   
   <center><img src="./imgs/3.png" style="max-width:50%;"></center>
 
@@ -28,11 +28,11 @@
 
 WebSocket 是一种`基于 TCP 的全双工通信`协议，能够在客户端和服务器之间建立持久连接。该协议由 IETF 于 2011 年发布为 RFC 6455 标准，广泛应用于在线游戏、聊天应用、实时数据流等需要实时交互的场景中。
 
- > - `全双工通信`（Full Duplex）：指通信双方可以同时发送和接收数据，就像电话一样，双方可以同时说话和听对方说话。
+ > - **全双工通信**（Full Duplex）：指通信双方可以同时发送和接收数据，就像电话一样，双方可以同时说话和听对方说话。
  > 
- > - `半双工通信`（Half Duplex）：指通信双方不能同时发送和接收数据，就像对讲机一样，必须轮流说话和听对方说话。
+ > - **半双工通信**（Half Duplex）：指通信双方不能同时发送和接收数据，就像对讲机一样，必须轮流说话和听对方说话。
  > 
- > - `单工通信`（Simplex）：指通信双方只能单向发送和接收数据，就像广播一样，只有发送方可以发送信息，接收方只能被动接收。
+ > - **单工通信**（Simplex）：指通信双方只能单向发送和接收数据，就像广播一样，只有发送方可以发送信息，接收方只能被动接收。
 
 ## 3.工作原理
 
@@ -42,7 +42,7 @@ WebSocket 是一种`基于 TCP 的全双工通信`协议，能够在客户端和
 
 WebSocket 通信分为两个阶段：
 
-1. `握手阶段`（handshake）：客户端通过发送一个特殊的 HTTP 请求来发起 WebSocket 连接请求，服务器收到请求后，如果支持 WebSocket 协议，会返回一个特殊的 HTTP 响应，表示同意建立 WebSocket 连接。握手完成后，HTTP 连接升级为 WebSocket 连接。
+1. **握手阶段**（handshake）：客户端通过发送一个特殊的 HTTP 请求来发起 WebSocket 连接请求，服务器收到请求后，如果支持 WebSocket 协议，会返回一个特殊的 HTTP 响应，表示同意建立 WebSocket 连接。握手完成后，HTTP 连接升级为 WebSocket 连接。
    
    ::: code-group 
 
@@ -73,13 +73,13 @@ WebSocket 通信分为两个阶段：
 
     :::
 
-2. `数据传输阶段`（data transfer）：连接建立后，客户端和服务器可以通过这个连接进行`双向`的数据传输，数据以`帧`（Frame）的形式发送，可以是文本帧或二进制帧。
+2. **数据传输阶段**（data transfer）：连接建立后，客户端和服务器可以通过这个连接进行**双向**的数据传输，数据以**帧**（Frame）的形式发送，可以是文本帧或二进制帧。
    
-   > `帧`是 WebSocket 协议中传输数据的`基本单位`，每个帧包含一个`头部`和一个`负载`（Payload）。头部包含控制信息，如帧的类型、长度等，负载则包含实际传输的数据。
+   > **帧**是 WebSocket 协议中传输数据的**基本单位**，每个帧包含一个**头部**和一个**负载**（Payload）。头部包含控制信息，如帧的类型、长度等，负载则包含实际传输的数据。
    > 
    > 比如：客户端发送了一条消息，WebSocket 会将这条消息创建一个帧进行传输给服务器，服务器收到后再将其解析出来。
    > 
-   > 如果`消息较大`，WebSocket 还可以将其`拆分成多个帧`进行传输，那么服务器收到后再将这些帧`重新组装`成完整的消息。
+   > 如果**消息较大**，WebSocket 还可以将其**拆分成多个帧**进行传输，那么服务器收到后再将这些帧**重新组装**成完整的消息。
 
 另外需要注意的是：
 
@@ -88,7 +88,7 @@ WebSocket 通信分为两个阶段：
 
 ## 4.在 JS 中使用 WebSocket
 
-很多编程语言和开发框架都提供了对 WebSocket 的支持，因为后文会实现一个`网页版在线聊天室`的应用，会用到 JavaScript 和 Java 语言，所以这里主要介绍这两种语言如何使用 WebSocket。
+很多编程语言和开发框架都提供了对 WebSocket 的支持，因为后文会实现一个**网页版在线聊天室**的应用，会用到 JavaScript 和 Java 语言，所以这里主要介绍这两种语言如何使用 WebSocket。
 
 对于 Web 端，可以使用浏览器内置的 WebSocket API 来创建和管理 WebSocket 连接，但是浏览器为了安全和简化开发，对底层协议做了封装，有些偏底层的功能无法直接使用，如果需要使用的话，可以使用第三方库（`Socket.IO、SockJS`等）来实现，下文也只是介绍内置的 WebSocket API 的基本用法。
 
@@ -165,8 +165,8 @@ ws.onmessage = function(event) {
 
 - `Endpoint`
   - Java WebSocket 应用由一组`Endpoint`组成，每个`Endpoint`定义了一个 WebSocket 端点，负责处理来自客户端的连接，并在此过程中管理会话生命周期与消息交互。
-  - Endpoint 实例在 WebSocket `握手`（handshake）时被`创建`，在连接关闭时被`销毁`。
-  - 注意：Endpoint 是`多实例`的，每次有新的客户端连接时，都会创建一个新的 Endpoint 实例来处理该连接。
+  - Endpoint 实例在 WebSocket **握手**（handshake）时被**创建**，在连接关闭时被**销毁**。
+  - 注意：Endpoint 是**多实例**的，每次有新的客户端连接时，都会创建一个新的 Endpoint 实例来处理该连接。
 - `Session`
   - 表示客户端与服务端之间的一个 WebSocket 连接会话，负责管理连接的状态和属性。
   - 每个`Session`都有一个唯一的标识符，可以通过它来区分不同的连接。
@@ -174,7 +174,7 @@ ws.onmessage = function(event) {
 - `MessageHandler`
   - 用于处理接收到的消息，可以是文本消息或二进制消息。它分为两种类型：
     - `Whole`：一次性接收完整消息。
-    - `Partial`：分段接收消息。在前文介绍 WebSocket [工作原理](./#_3-工作原理)中提到过当消息较大时，可以将其拆分成`多个帧`进行传输，那么在接收消息时就可以使用`Partial`类型。
+    - `Partial`：分段接收消息。在前文介绍 WebSocket [工作原理](./#_3-工作原理)中提到过当消息较大时，可以将其拆分成**多个帧**进行传输，那么在接收消息时就可以使用`Partial`类型。
 - `RemoteEndpoint`
   - 用于发送消息到客户端。它也分为两种类型：
     - `Basic`：提供基本的消息发送功能。
@@ -259,8 +259,6 @@ public ServerEndpointExporter serverEndpointExporter() {
 :::code-group
 
 ```java [编程式]
-package com.yolk.websocket;
-
 import jakarta.websocket.CloseReason;
 import jakarta.websocket.Endpoint;
 import jakarta.websocket.EndpointConfig;
@@ -309,8 +307,6 @@ public class ChatEndpoint1 extends Endpoint {
 ```
 
 ```java [注解式]
-package com.yolk.websocket;
-
 import jakarta.websocket.CloseReason;
 import jakarta.websocket.EndpointConfig;
 import jakarta.websocket.OnClose;
@@ -359,8 +355,6 @@ public class ChatEndpoint2 {
 ```
 
 ```java [配置类]
-package com.yolk.websocket;
-
 import jakarta.websocket.server.ServerEndpointConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -436,8 +430,8 @@ ws2.onopen = function() {
 
 #### 注意
 
-- `每种消息类型只能有一个处理器`，即使是`Whole`和`Partial`一样一个也不行，如果需要处理多种类型的消息，可以添加多个不同类型的消息处理器。
-- 当只注册了`Whole`类型的处理器时，客户端发送的却是`分段`消息，`WebSocket 会自动进行组装`，以确保消息能够被正确处理，`Partial`同理。
+- **每种消息类型只能有一个处理器**，即使是`Whole`和`Partial`一样一个也不行，如果需要处理多种类型的消息，可以添加多个不同类型的消息处理器。
+- 当只注册了`Whole`类型的处理器时，客户端发送的却是**分段**消息，`WebSocket 会自动进行组装`，以确保消息能够被正确处理，`Partial`同理。
 
 #### 使用示例
 
@@ -693,7 +687,7 @@ npm run dev
 
 ### 6.1.定义消息格式
 
-在前面的示例中，发送和接收的消息都是简单的字符串，在实际应用中，通常需要定义一个`消息格式`，以便携带更多的信息，比如发送者、接收者、消息内容等。
+在前面的示例中，发送和接收的消息都是简单的字符串，在实际应用中，通常需要定义一个**消息格式**，以便携带更多的信息，比如发送者、接收者、消息内容等。
 
 在这里我们使用`JSON`格式来表示消息，根据来源不同分为两种类型：
 
@@ -763,8 +757,6 @@ npm run dev
 新建`config`包，并创建 WebSocket 配置类，定义一个`ServerEndpointExporter`Bean，用于扫描并注册所有的 WebSocket 端点。
 
 ```java
-package com.yolk.onlinechatserver.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
@@ -793,8 +785,6 @@ public class WebSocketConfig {
 简单起见，`OnError`方法就不定义了，另外因为约定了消息是 JSON 格式的，所以接收的消息类型是`String`。
 
 ```java
-package com.yolk.onlinechatserver.websocket;
-
 import jakarta.websocket.CloseReason;
 import jakarta.websocket.EndpointConfig;
 import jakarta.websocket.OnClose;
@@ -845,8 +835,6 @@ public class ChatEndpoint {
 在`config`包中新建`GetHttpSessionConfig`类，它继承自`ServerEndpointConfig.Configurator`，并重写`modifyHandshake()`方法，代码如下：
 
 ```java
-package com.yolk.onlinechatserver.config;
-
 import jakarta.servlet.http.HttpSession;
 import jakarta.websocket.HandshakeResponse;
 import jakarta.websocket.server.HandshakeRequest;

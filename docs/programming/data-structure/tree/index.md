@@ -5,8 +5,6 @@
 ### 1.1. BinaryTreePrinter.java
 
 ```java
-package com.yolk.datastructure.tree;
-
 import java.util.*;
 
 /**

@@ -20,8 +20,6 @@
 在所有排序算法中，均有一些公共的逻辑，比如：交换、比较大小等操作，可以将这些公共逻辑封装到一个抽象类中，还可以进行一些指标统计，所有排序算法均继承自该抽象类，并实现`sort()`方法，如下：
 
 ```java
-package sort;
-
 import java.text.DecimalFormat;
 
 /**
@@ -308,8 +306,6 @@ public abstract class Sort<E extends Comparable<E>> implements Comparable<Sort<E
 ### 4.1.性能对比测试代码
 
 ```java
-package sort;
-
 import sort.compare.bubble.BubbleSort3;
 import sort.compare.heap.HeapSort;
 import sort.compare.insertion.InsertionSort3;

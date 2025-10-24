@@ -46,6 +46,15 @@
   -webkit-text-fill-color: transparent;
 }
 
+.vp-doc strong {
+  color: #18794e;
+  font-weight: 600 !important;
+}
+
+.vp-doc :not(pre) > code {
+  /* background-color: rgb(142 150 170 / 28%); */
+}
+
 /* medium样式 */
 .medium-zoom-overlay {
   z-index: 30;
