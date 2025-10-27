@@ -289,6 +289,29 @@ const sidebar = {
           },
         ],
       },
+      {
+        text: "分布式",
+        base: "/programming/distributed/",
+        collapsed: true,
+        items: [
+          //   {
+          //     text: "前言",
+          //     link: "/",
+          //   },
+            {
+              text: "分布式事务",
+              link: "/transaction/",
+            },
+          //   {
+          //     text: "分布式锁",
+          //     link: "/lock/",
+          //   },
+          {
+            text: "Seata",
+            link: "/seata/",
+          },
+        ],
+      },
       //   {
       //     text: "中间件",
       //     base: "/programming/middleware/",
