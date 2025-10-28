@@ -31,12 +31,12 @@ const sidebar = {
       //     link: "/programming/",
       //   },
       {
-        text: "搭建开发环境",
+        text: "Mac 搭建开发环境",
         base: "/programming/build-env/",
         collapsed: true,
         items: [
           {
-            text: "终端",
+            text: "让终端更好用",
             link: "/terminal/",
           },
           {
@@ -44,36 +44,36 @@ const sidebar = {
             link: "/alfred/",
           },
           {
-            text: "工具推荐",
-            link: "/good-tools/",
-          },
-          {
             text: "SSH & Git",
             link: "/ssh-git/",
           },
           {
-            text: "安装 Java",
+            text: "搭建 Java 开发环境",
             link: "/java/",
           },
           {
-            text: "安装 Node",
+            text: "搭建 Node 开发环境",
             link: "/node/",
           },
           {
-            text: "安装 Python",
+            text: "搭建 Python 开发环境",
             link: "/python/",
           },
           {
-            text: "安装 Go",
+            text: "搭建 Go 开发环境",
             link: "/go/",
           },
           {
             text: "安装 Docker & Kubernetes",
             link: "/docker-k8s/",
           },
+        //   {
+        //     text: "Chrome",
+        //     link: "/chrome/",
+        //   },
           {
-            text: "Chrome",
-            link: "/chrome/",
+            text: "👍 工具推荐",
+            link: "/good-tools/",
           },
           {
             text: "JetBrains 插件推荐",
