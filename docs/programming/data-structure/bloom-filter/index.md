@@ -299,3 +299,186 @@ private boolean get(int index) {
 }
 ```
 
+## 6.源码
+
+::: code-group
+
+```java [BloomFilter.java]
+import java.util.Arrays;
+
+/**
+ * 布隆过滤器
+ *
+ * @param <T> 元素类型
+ * @author yolk
+ * @since 2025/10/17 17:41
+ */
+public class BloomFilter<T> {
+
+    /**
+     * 二进制向量的长度 m（一共有多少个二进制位）
+     */
+    private int bitSize;
+
+    /**
+     * 二进制向量
+     * <p>
+     * 每个 long 类型有 8 个字节，共 64 位
+     * 使用 long 数组，那么 bits.length * 64 就是二进制向量的总长度，这样能存储更多的数据
+     * bits.length = bitSize / 64 + 1 || Math.ceil(bitSize / 64.0)
+     */
+    private long[] bits;
+
+    /**
+     * 哈希函数的数量 k
+     */
+    private int hashSize;
+
+    /**
+     * 构造布隆过滤器
+     * 基于数据规模 n 和误判率 p 计算所需的位数组大小 m 和哈希函数数量 k
+     *
+     * @param n 数据规模
+     * @param p 误判率
+     */
+    public BloomFilter(int n, double p) {
+        if (n <= 0 || p <= 0 || p >= 1) {
+            throw new IllegalArgumentException("n or p is invalid");
+        }
+
+        // 计算 m 和 k 的公式均需要用到 ln2
+        double ln2 = Math.log(2);
+
+        // 基于工具计算 m 和 k
+        this.bitSize = (int) (-(n * Math.log(p)) / (ln2 * ln2));
+        this.hashSize = (int) (this.bitSize * ln2 / n);
+
+        // 初始化 bits 数组
+        // int length = (int) Math.ceil((double) this.bitSize / Long.SIZE);
+        // 下面计算 length 等同于上面的写法
+        int length = (this.bitSize + Long.SIZE - 1) / Long.SIZE;
+        this.bits = new long[length];
+    }
+
+    /**
+     * 添加元素到布隆过滤器
+     *
+     * @param value 要添加的元素
+     * @return 如果二进位有改动返回 true，否则返回 false
+     */
+    public boolean put(T value) {
+        nullCheck(value);
+
+        // 利用 value 生成 2 个整数
+        int hash1 = value.hashCode();
+        int hash2 = hash1 >>> 16;
+
+        boolean bitsChanged = false;
+        for (int i = 1; i <= hashSize; i++) {
+            int combinedHash = hash1 + (i * hash2);
+            if (combinedHash < 0) {
+                combinedHash = ~combinedHash;
+            }
+
+            // 生成 bitSize 范围内的索引
+            int index = combinedHash % bitSize;
+            // 设置 bits 中 index 位为 1
+            if (set(index)) {
+                bitsChanged = true;
+            }
+        }
+        return bitsChanged;
+    }
+
+    /**
+     * 设置 bits 中指定索引的位为 1
+     * 假设 bits 数组此时元素为：[101..01.., 1..0..11.., xxx, xxx]，每个元素都是 64 位
+     * 设置 index 位为 1，可以使用｜位运算，比如：
+     * <p>
+     * 101010101001010101 (所有 long 元素拼接起来的二进制表示)
+     * ｜000000000010000000 (1 << ?)
+     * --------------------
+     * 101010101011010101
+     * <p>
+     * 那么 1 << ? 中的 ? 怎么计算呢？这里是将所有 long 元素拼接起来看待的，实际中需要分开计算
+     *
+     * @param index 要设置的索引
+     * @return 如果该位原本就是 1，返回 false，否则返回 true
+     */
+    private boolean set(int index) {
+        // 找到 index 需要将哪个 long 元素中某一位置为 1，整除向下取整，刚好是对应的 long 元素索引
+        int arrayIndex = index / Long.SIZE;
+        long value = bits[arrayIndex];
+        // 计算该 long 元素中的哪一位需要设置为 1
+        int innerIndex = Long.SIZE - index % Long.SIZE;
+        int bitValue = 1 << innerIndex;
+
+        // 使用 & 位运算检查该位原本是否为 0，如果是 0 则说明有改动
+        boolean result = (value & bitValue) == 0;
+
+        // 使用｜位运算将该位置设置为 1，并覆盖原有的 long 元素
+        bits[arrayIndex] = value | bitValue;
+        return result;
+    }
+
+    /**
+     * 检查布隆过滤器是否包含指定元素
+     *
+     * @param value 要检查的元素
+     * @return 不包含返回 false，包含返回 true（可能存在误判）
+     */
+    public boolean contains(T value) {
+        int hash1 = value.hashCode();
+        int hash2 = hash1 >>> 16;
+
+        for (int i = 1; i <= hashSize; i++) {
+            int combinedHash = hash1 + (i * hash2);
+            if (combinedHash < 0) {
+                combinedHash = ~combinedHash;
+            }
+            int index = combinedHash % bitSize;
+
+            if (!get(index)) {
+                // 如果有任意一位为 0，则说明一定不包含该元素
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 查看 bits 中指定索引的位是否为 1
+     * 同理，设置某一位为 1 时，是用｜位运算，那么查看某一位是否为 1，可以使用 & 位运算，比如：
+     * <p>
+     * 101010101011010101
+     * & 000000000010000000
+     * --------------------
+     * 000000000010000000
+     *
+     * @param index 要查看的索引
+     * @return 位为 1 返回 true，否则返回 false
+     */
+    private boolean get(int index) {
+        int arrayIndex = index / Long.SIZE;
+        long value = bits[arrayIndex];
+        int innerIndex = Long.SIZE - index % Long.SIZE;
+        int bitValue = 1 << innerIndex;
+        return (value & bitValue) != 0;
+    }
+
+    /**
+     * 检查元素是否为 null
+     *
+     * @param value 要检查的元素
+     */
+    private void nullCheck(T value) {
+        if (value == null) {
+            throw new IllegalArgumentException("value must not be null");
+        }
+    }
+
+}
+```
+
+:::
+
