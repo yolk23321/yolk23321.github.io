@@ -67,10 +67,10 @@ const sidebar = {
             text: "安装 Docker & Kubernetes",
             link: "/docker-k8s/",
           },
-        //   {
-        //     text: "Chrome",
-        //     link: "/chrome/",
-        //   },
+          //   {
+          //     text: "Chrome",
+          //     link: "/chrome/",
+          //   },
           {
             text: "👍 工具推荐",
             link: "/good-tools/",
@@ -243,6 +243,14 @@ const sidebar = {
         collapsed: true,
         items: [
           {
+            text: "JVM",
+            link: "/jvm/",
+          },
+          {
+            text: "GC 垃圾回收",
+            link: "/gc/",
+          },
+          {
             text: "编译 JDK",
             link: "/source-code/",
           },
@@ -298,10 +306,10 @@ const sidebar = {
           //     text: "前言",
           //     link: "/",
           //   },
-            {
-              text: "分布式事务",
-              link: "/transaction/",
-            },
+          {
+            text: "分布式事务",
+            link: "/transaction/",
+          },
           //   {
           //     text: "分布式锁",
           //     link: "/lock/",
