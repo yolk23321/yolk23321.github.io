@@ -16,8 +16,9 @@ const { rewrites } = await usePosts();
 //导航栏
 const nav = [
   { text: "首页", link: "/" },
+  //   { text: "导航", link: "/navigation/" },
   { text: "程序员", link: "/programming/" },
-  { text: "兴趣", link: "/hobby/" },
+  //   { text: "兴趣", link: "/hobby/" },
   //   { text: "看世界", link: "/travel/" },
   //   { text: "日程", link: "/schedule/" },
 ];

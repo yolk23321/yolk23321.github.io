@@ -6,14 +6,18 @@ hero:
   text: 希望我们每天都会快乐
   tagline: "你可以叫我强仔，或者 Yolk，我是一名具有强迫症的程序员，会在这里分享一些技术文章和生活随笔。"
   actions:
+    - theme: alt
+      text: yolk23321@163.com  
     - theme: brand
-      text: yolk23321@163.com
-      # link: 
+      text: 常用站点导航
+      link: /navigation/
     - theme: sponsor
-      text: 点击查看近期提交
+      text: 查看近期提交
       link: https://github.com/yolk23321/yolk23321.github.io/commits/main/
   image:
     src: /smile.png
+
+
 
 # features:
 #   - icon: 📝
