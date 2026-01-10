@@ -320,6 +320,17 @@ const sidebar = {
           },
         ],
       },
+      {
+        text: "思考",
+        base: "/programming/thinking/",
+        collapsed: true,
+        items: [
+          {
+            text: "DB 操作与 MQ 发送消息的一致性问题",
+            link: "/db-mq-consistency",
+          },
+        ],
+      },
       //   {
       //     text: "中间件",
       //     base: "/programming/middleware/",
