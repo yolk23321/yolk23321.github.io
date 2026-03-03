@@ -43,6 +43,12 @@ go version
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
+测试：
+```bash
+# 会打印出获取指定包的请求信息，观察是否从去请求设置的代理地址
+go list -x -m golang.org/x/net@latest
+```
+
 ## 4.Gvm 常用命令
 
 ```bash
