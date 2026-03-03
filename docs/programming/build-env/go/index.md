@@ -11,9 +11,14 @@ source ~/.gvm/scripts/gvm
 
 ![](./imgs/1.png)
 
-配置下载`Go`的镜像地址，编辑`~/.zshrc`文件，追加以下内容：
+## 2.配置环境变量
+
+编辑`~/.zshrc`文件，追加以下内容：
 
 ```bash
+# 设置 Go Modules 的下载代理为国内镜像
+export GOPROXY=https://goproxy.io,direct
+# 使用 Gvm 进行 Go 的预编译二进制安装包进行安装时，则会使用下面的镜像地址
 export GO_BINARY_BASE_URL=https://golang.google.cn/dl/ 
 ```
 
@@ -30,23 +35,6 @@ Go 镜像地址:
 gvm install go1.21.1 -B
 gvm use go1.21.1 --default
 go version
-```
-
-## 4.设置 Go 代理
-
-当我们下载依赖时，由于默认的官方代理（proxy.golang.org）在部分地区访问受限或极慢，配置国内镜像可以大幅提升依赖拉取速度
-
-执行命令：
-
-```bash
-# 此地址由七牛云提供，direct表示当代理镜像不可用时，直接从原始地址去拉去
-go env -w GOPROXY=https://goproxy.cn,direct
-```
-
-测试：
-```bash
-# 会打印出获取指定包的请求信息，观察是否从去请求设置的代理地址
-go list -x -m golang.org/x/net@latest
 ```
 
 ## 4.Gvm 常用命令
