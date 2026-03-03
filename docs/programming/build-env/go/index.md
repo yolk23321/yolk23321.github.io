@@ -34,19 +34,14 @@ go version
 
 ## 4.设置 Go 代理
 
-由于默认的官方代理（proxy.golang.org）在部分地区访问受限或极慢，配置国内镜像可以大幅提升依赖拉取速度
+当我们下载依赖时，由于默认的官方代理（proxy.golang.org）在部分地区访问受限或极慢，配置国内镜像可以大幅提升依赖拉取速度
 
 执行命令：
 
 ```bash
+# 此地址由七牛云提供，direct表示当代理镜像不可用时，直接从原始地址去拉去
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
-
-代理镜像地址：
-
-- 七牛云：https://goproxy.cn,direct
-- 阿里云：https://mirrors.aliyun.com
-- 官方全球：https://goproxy.io,direct 
 
 ## 4.Gvm 常用命令
 
