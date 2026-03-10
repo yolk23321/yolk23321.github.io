@@ -71,15 +71,7 @@ ssh-add -K ~/.ssh/id_ed25519_authing
 
 ![](./imgs/6.png)
 
-不过 ssh-agent 有一个缺点，就是在系统重启后，之前添加的**私钥会丢失**，需要**重新添加**，这里使用`oh-myzsh`的`ssh-agent`插件来解决这个问题，编辑`~/.zshrc`文件，找到`plugins=(...)`，添加`ssh-agent`插件，并设置静默模式：
-
-```shell
-plugins=(... ssh-agent)
-
-zstyle ':omz:plugins:ssh-agent' quiet yes
-```
-
-<!-- 这里使用一个脚本来实现自动添加私钥，编辑`~/.zshrc`文件，添加如下内容：
+不过 ssh-agent 有一个缺点，就是在系统重启后，之前添加的**私钥会丢失**，需要**重新添加**，这里使用一个脚本来实现自动添加私钥，编辑`~/.zshrc`文件，添加如下内容：
 
 ```shell
 # 加入密钥到 ssh-agent 中
@@ -92,7 +84,7 @@ for key in ~/.ssh/id_*; do
         ssh-add -q "$key" 2>/dev/null
     fi
 done
-``` -->
+```
 
 ## 4.配置 SSH 客户端
 
