@@ -9,6 +9,7 @@ import MouseFollower from "./MouseFollower.vue";
 import backtotop from "./backtotop.vue"
 import notice from "./notice.vue"
 import bsz from "./bsz.vue"
+import SidebarCollapse from "./SidebarCollapse.vue"
 
 const { isDark } = useData()
 
@@ -60,6 +61,7 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
       <bsz />
     </template>
   </DefaultTheme.Layout>
+  <SidebarCollapse />
 </template>
 
 <style>
